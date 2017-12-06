@@ -1,12 +1,12 @@
-defmodule KnightHardwareWeb do
+defmodule KnightHardware.Web do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use KnightHardwareWeb, :controller
-      use KnightHardwareWeb, :view
+      use KnightHardware.Web, :controller
+      use KnightHardware.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -17,41 +17,56 @@ defmodule KnightHardwareWeb do
   and import those modules here.
   """
 
+  def model do
+    quote do
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
+    end
+  end
+
   def controller do
     quote do
-      use Phoenix.Controller, namespace: KnightHardwareWeb
-      import Plug.Conn
-      import KnightHardwareWeb.Router.Helpers
-      import KnightHardwareWeb.Gettext
+      use Phoenix.Controller
+
+      alias KnightHardware.Repo
+      import Ecto
+      import Ecto.Query
+
+      import KnightHardware.Router.Helpers
+      import KnightHardware.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/knight_hardware_web/templates",
-                        namespace: KnightHardwareWeb
+      use Phoenix.View, root: "web/templates"
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
 
-      import KnightHardwareWeb.Router.Helpers
-      import KnightHardwareWeb.ErrorHelpers
-      import KnightHardwareWeb.Gettext
+      import KnightHardware.Router.Helpers
+      import KnightHardware.ErrorHelpers
+      import KnightHardware.Gettext
     end
   end
 
   def router do
     quote do
       use Phoenix.Router
-      import Plug.Conn
-      import Phoenix.Controller
     end
   end
 
   def channel do
     quote do
       use Phoenix.Channel
-      import KnightHardwareWeb.Gettext
+
+      alias KnightHardware.Repo
+      import Ecto
+      import Ecto.Query
+      import KnightHardware.Gettext
     end
   end
 

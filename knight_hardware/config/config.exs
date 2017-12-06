@@ -10,10 +10,10 @@ config :knight_hardware,
   ecto_repos: [KnightHardware.Repo]
 
 # Configures the endpoint
-config :knight_hardware, KnightHardwareWeb.Endpoint,
+config :knight_hardware, KnightHardware.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "xSUUiDRQEd1PuZMtaJ5jCxtA1h+wwJaSvyC2jIr1CdKtqwSYPlywU4QuS9A4xoq3",
-  render_errors: [view: KnightHardwareWeb.ErrorView, accepts: ~w(json)],
+  secret_key_base: "ls7IG9HE6tqDRVA8V/oVFdUk6UmkNR5ZcK6LH1mSobRZvSugJ5RBFDIyqygmcHvs",
+  render_errors: [view: KnightHardware.ErrorView, accepts: ~w(json)],
   pubsub: [name: KnightHardware.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

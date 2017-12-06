@@ -1,4 +1,4 @@
-defmodule KnightHardwareWeb.ErrorHelpers do
+defmodule KnightHardware.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -21,9 +21,9 @@ defmodule KnightHardwareWeb.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(KnightHardwareWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(KnightHardware.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(KnightHardwareWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(KnightHardware.Gettext, "errors", msg, opts)
     end
   end
 end

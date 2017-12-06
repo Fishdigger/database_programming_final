@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     KnightHardware.Repo.insert!(%KnightHardware.SomeSchema{})
+#     KnightHardware.Repo.insert!(%KnightHardware.SomeModel{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+# and so on) as they will halt execution if something goes wrong.

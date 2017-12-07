@@ -38,7 +38,8 @@ defmodule KnightHardware.Mixfile do
       {:phoenix_ecto, "~> 3.2"},
       {:mariaex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:ecto_generator, "~> 9.0.0"}
     ]
   end
 

@@ -20,6 +20,9 @@ defmodule KnightHardware.Mixfile do
   def application do
     [
       mod: {KnightHardware, []},
+      applications: [:phoenix, :phoenix_pubsub,
+        :phoenix_html, :cowboy, :gettext, :phoenix_ecto,
+        :mariaex],
       extra_applications: [:logger]
     ]
   end
@@ -39,7 +42,9 @@ defmodule KnightHardware.Mixfile do
       {:mariaex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:ecto_generator, "~> 9.0.0"}
+      {:ecto_generator, "~> 9.0.0"},
+      {:phoenix_html, "~> 2.6"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev}
     ]
   end
 

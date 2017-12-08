@@ -7,4 +7,9 @@ defmodule KnightHardware.OrderDetail do
     field :part_number, :string, primary_key: true
     field :num_ordered, :integer
   end
+
+  def changeset(struct, params \\ %{}) do
+    cast(struct, params, [:order_number, :part_number, :num_ordered])
+    |> validate_required([:order_number, :part_number, :num_ordered])
+  end
 end

@@ -16,17 +16,18 @@ defmodule KnightHardware.Router do
 
     get "/part_classes", PartClassController, :index
     get "/part_classes/:part_class", PartClassController, :show
+    get "/part_classes/:part_class/parts", PartClassController, :list_parts
 
     get "/orders", OrderController, :index
     get "/orders/:order_number", OrderController, :show
     post "/orders", OrderController, :create
-    # patch "/orders/:order_number", OrderController, :update
-    # delete "/orders/:order_number", OrderController, :delete
+    patch "/orders/:order_number", OrderController, :update
+    delete "/orders/:order_number", OrderController, :delete
 
-    # get "/orders/:order_number/details", OrderDetailController, :show
-    # post "/orders/:order_number/details", OrderDetailController, :create
-    # patch "/orders/:order_number/details", OrderDetailController, :update
-    # delete "/orders/:order_number/details", OrderDetailController, :delete
+    get "/orders/:order_number/details", OrderDetailController, :show
+    post "/orders/:order_number/details", OrderDetailController, :create
+    patch "/orders/:order_number/details", OrderDetailController, :update
+    delete "/orders/:order_number/details", OrderDetailController, :delete
 
   end
 end

@@ -13,9 +13,8 @@ defmodule KnightHardware.Order do
     |> validate_required([:customer_number, :order_date])
   end
 
-  def generate_order_number do
-    q = from(o in KnightHardware.Order, order_by: [asc: o.order_number])
-    KnightHardware.Repo.one(q) + 1
+  def get_last_order_number do
+    KnightHardware.Repo.one(from o in KnightHardware.Order, select: max(o.order_number))
   end
 
   def get_by_customer(cust_num) when is_number(cust_num) do

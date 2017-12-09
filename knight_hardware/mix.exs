@@ -44,7 +44,8 @@ defmodule KnightHardware.Mixfile do
       {:cowboy, "~> 1.0"},
       {:ecto_generator, "~> 9.0.0"},
       {:phoenix_html, "~> 2.6"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev}
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 

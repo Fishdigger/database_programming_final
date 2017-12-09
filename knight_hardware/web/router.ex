@@ -5,19 +5,20 @@ defmodule KnightHardware.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
-  end
+  # pipeline :browser do
+  #   plug :accepts, ["html"]
+  #   plug :fetch_session
+  #   plug :fetch_flash
+  #   plug :protect_from_forgery
+  #   plug :put_secure_browser_headers
+  # end
 
-  scope "/", KnightHardware do
-    pipe_through :browser
+  # scope "/", KnightHardware do
+  #   pipe_through :browser
 
-    get "/", HomeController, :index
-  end
+  #   get "/", HomeController, :index
+  #   get "/orders", HomeController, :orders
+  # end
 
   scope "/api", KnightHardware do
     pipe_through :api

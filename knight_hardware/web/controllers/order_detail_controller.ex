@@ -6,7 +6,7 @@ defmodule KnightHardware.OrderDetailController do
     alias KnightHardware.Repo
 
     def show(conn, %{"order_number" => order_number}) do
-        json conn, Repo.get_by(OrderDetail, order_number: order_number)
+        json conn, Repo.all(from od in OrderDetail, where: od.order_number == ^order_number)
     end
 
     def create(conn, order_detail) do
